@@ -1,0 +1,215 @@
+:root{
+    --lightColor: #f4f4f5;
+    --whiteColor: #fafafa;
+    --darkColor: #18181b;
+    --blackColor: #09090b;
+    --purpleColor: #8b5cf6;
+    --blueColor: #67e8f9;
+    --grayColor: #a1a1aa;
+    --principalFont: 'Poppins', sans-serif;
+}
+html { 
+    box-sizing: border-box;
+    font-size: 62.5%; 
+} 
+*, *:before, *:after { 
+    box-sizing: inherit;
+}
+body{
+    background-color: #1e293b;
+    min-height: 100vh;
+    font-family: var(--principalFont);
+}
+body.dark{
+    background-color: var(--darkColor);
+    color: var(--whiteColor);
+}
+/*******GLOBALES******/
+h1,h2,h3,p{
+    margin: 0;
+}
+h1{
+    color: var(--blueColor);
+    font-size: 3rem;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+button{
+    cursor: pointer;
+    border: none;
+
+}
+
+.logo{
+    transition: all .3s ease-in-out;
+}
+.logo:hover{
+    opacity: .5;
+}
+.container{
+    width: 90%;
+    max-width: 140rem;
+    margin: 0 auto;
+
+}
+/********LAYOUT*********/
+.header{
+    width: 100%;
+    border-bottom: 2px solid var(--lightColor);
+}
+.navbar{
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+@media (min-width: 600px){ 
+     .navbar{
+        flex-direction: row;
+        justify-content: space-between;
+     }
+}
+.navbar-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+#menu{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#menu input[type="text"]{
+    padding: 1rem 1rem 1rem 5rem;
+    border: 2px solid transparent;
+    border-radius: .5rem;
+    font-size: 1.5rem;
+    outline: none;
+    transition: all .5s ease-in;
+    width: 20rem;
+}
+@media (min-width: 900px){ 
+    #menu input[type="text"]{
+        width: 40rem;
+    }
+    #menu input[type="text"]:focus, #form input[type="text"]:hover{
+        border: 2px solid var(--blueColor);
+        opacity: .9;
+    }
+    #btn-toggle svg:hover{
+        scale: 1.2;
+        color: var(--blueColor);
+    }
+}
+#menu input[type="text"]:focus{
+    border: 2px solid var(--blueColor);
+    opacity: .9;
+}
+#btn-search{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    padding-left: 1rem;
+    display: grid;
+    place-items: center;
+}
+#btn-toggle{
+    background-color: transparent;
+}
+#btn-toggle svg{
+    color: var(--whiteColor);
+    transition: all .5s ease-in-out;
+    animation: turn 1s ease-in-out .1s 1 alternate backwards;
+    
+}
+
+@keyframes turn {
+    0%{rotate: 0; scale: 1;}
+    50%{rotate: 360deg; scale:1;}
+    100%{rotate: 360deg;}
+}
+/********MAIN***********/
+.main{
+    padding: 4rem 0;
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+    gap: 4rem;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: .5rem;
+    max-height: 60rem;
+    overflow: auto;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.card-image{
+    height: 50%;
+    flex-grow: 1;
+}
+.card-image img{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+}
+.card-info{
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem;
+    color: var(--whiteColor);
+    position: relative;
+}
+.card-info h2{
+    font-size: 3.5rem;
+    text-align: center;
+    color: #67e8f9;
+}
+.card-info p{
+    font-size: 1.5rem;
+}
+.card .info{
+    color: #67e8f9;
+}
+
+
+/*****UTILIES******/
+.alert, .error{
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    width: 80%;
+    margin: 2rem auto;
+    color: var(--whiteColor);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+@media (min-width: 900px){ 
+     .alert{
+        font-size: 2rem;
+        width: 50%;
+     }
+}
+.image-icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 8rem;
+}
